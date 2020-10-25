@@ -15,7 +15,7 @@ class Parse_Comment:
             comment.set_rating(comment_obj.findAll("div", {"class": "comment__rating-count"})[0].text)
             comment.set_formatted_text(self._clean_text(comment_obj.findAll("div", {"class": "comment__content"})[0].text))
             comment.set_pluses([int(s) for s in comment_obj.findAll("div", {"class": "comment__rating-count"})[0]['aria-label'].split() if s.isdigit()][0])
-            comment.set_minuses([int(s) for s in comment_obj.findAll("div", {"class": "comment__rating-count"})[0]['aria-label'].split() if s.isdigit()][1])
+            #comment.set_minuses([int(s) for s in comment_obj.findAll("div", {"class": "comment__rating-count"})[0]['aria-label'].split() if s.isdigit()][1])
             comment.set_subcomments(self.parse(comment_obj.findAll("div", {"class": "comment__children"})[0], indent + 1) if self._has_subcomments(comment_obj) else [])
             comment.set_comment_level(indent)
             comments.append(comment)

@@ -294,15 +294,31 @@ class Pikabu_api():
                         return ""
 '''
 
+def com(comment):
+    comm = ''
+    comm = comment.get_formatted_text()
+    if (int(len(comment.get_subcomments())) != 0):
+        comm = comment.get_subcomments()
+    return comm
+
+
 if __name__ == "__main__":
     pikabu = Pikabu_api(debug=True)
-    post = pikabu.get_post('https://pikabu.ru/story/podvodim_itogi_2019_goda_7138233')
+    post = pikabu.get_post('https://pikabu.ru/story/otvet_na_post_polsha_protiv_abortov_7791278')
     print("title =", post.get_title())
     comment = post.get_comments()
     total_comments = post.get_total_comments()
-    print("Total", total_comments)
-    for i in range(int(total_comments)):
-        print(i)
-        #time.sleep(3)
+    print("Total", len(comment))
+    for i in range(int(len(comment))):
+        print("i =", i)
         comment = post.get_comments()[i]
+        #comm = com(comment)
+        #print(comm)
+        subcomments = comment.get_subcomments()
+        if (len(subcomments) != 0):
+            print("subcomments = ", len(subcomments))
+            for j in range(int(len(subcomments))):
+                print("j =", j)
+                subcomment = comment.get_subcomments()[j]
+                print(subcomment.get_formatted_text())
         print(comment.get_formatted_text())
