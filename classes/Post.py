@@ -15,6 +15,7 @@ class Post:
         self.comments_count = 0
         self.saves = 0
         self.shares = 0
+        self.total_comments = 0
         self.datetime = ''
         self.url = ''
         self.tags = []
@@ -60,6 +61,9 @@ class Post:
 
     def get_comments_count(self):
         return self.comments_count
+
+    def get_total_comments(self):
+        return self.total_comments
 
     def get_saves(self):
         return self.saves
@@ -196,6 +200,10 @@ class Post:
         self.saves = saves
         return True
 
+    def set_total_comments(self, total_comments):
+        self.total_comments = total_comments
+        return True
+
     def set_shares(self, shares):
         self.shares = shares
         return True
@@ -255,27 +263,28 @@ class Post:
 
     def print_values(self):
         from pprint import pprint
-        print("Title: " + self.get_title())
-        print("Content: " + self.get_content())
-        print("Content_html: " + self.get_content_html())
-        print("Content_blocks: ")
-        pprint(self.get_content_blocks())
-        print("Media: ")
-        pprint(self.get_media())
-        print("Links: ")
-        pprint(self.get_links())
-        print("Rating: " + self.get_rating())
-        print("Pluses: " + str(self.get_pluses()))
-        print("Minuses: " + str(self.get_minuses()))
-        print("Post_id: " + str(self.get_post_id()))
-        print("Username: " + self.get_username())
-        print("User_url: " + self.get_user_url())
-        print("Comments_count: " + str(self.get_comments_count()))
-        print("Saves: " + str(self.get_saves()))
-        print("Shares: " + str(self.get_shares()))
-        print("Datetime: " + self.get_datetime())
-        print("Url: " + self.get_url())
-        print("Tags: ")
-        pprint(self.get_tags())
-        print("Comments: ")
-        pprint(self.get_comments())
+        #print("Title: " + self.get_title())
+        #print("Content: " + self.get_content())
+        #print("Content_html: " + self.get_content_html())
+        #print("Content_blocks: ")
+        #pprint(self.get_content_blocks())
+        #print("Media: ")
+        #pprint(self.get_media())
+        #print("Links: ")
+        #pprint(self.get_links())
+        #print("Rating: " + self.get_rating())
+        #print("Pluses: " + str(self.get_pluses()))
+        #print("Minuses: " + str(self.get_minuses()))
+        #print("Post_id: " + str(self.get_post_id()))
+        #print("Username: " + self.get_username())
+        #print("User_url: " + self.get_user_url())
+        #print("Comments_count: " + str(self.get_comments_count()))
+        #print("Saves: " + str(self.get_saves()))
+        #print("Total comments: " + str(self.get_total_comments()))
+        #print("Shares: " + str(self.get_shares()))
+        #print("Datetime: " + self.get_datetime())
+        #print("Url: " + self.get_url())
+        #print("Tags: ")
+        #pprint(self.get_tags())
+        #print("Comments: ")
+        #pprint(self.get_comments())

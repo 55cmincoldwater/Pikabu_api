@@ -295,12 +295,14 @@ class Pikabu_api():
 '''
 
 if __name__ == "__main__":
-    test = Pikabu_api(debug=True)
-    # test.get_post('https://pikabu.ru/story/podvodim_itogi_2019_goda_7138233')
-    # test.get_user('https://pikabu.ru/@moderator')
-    test.get_popular_posts()
-    # test.get_best_posts()
-    # test.get_new_posts()
-    # test.get_most_saved_posts()
-    # test.get_disputed_posts()
-    # test.get_communities_feed_posts()
+    pikabu = Pikabu_api(debug=True)
+    post = pikabu.get_post('https://pikabu.ru/story/podvodim_itogi_2019_goda_7138233')
+    print("title =", post.get_title())
+    comment = post.get_comments()
+    total_comments = post.get_total_comments()
+    print("Total", total_comments)
+    for i in range(int(total_comments)):
+        print(i)
+        #time.sleep(3)
+        comment = post.get_comments()[i]
+        print(comment.get_formatted_text())
