@@ -320,5 +320,5 @@ if __name__ == "__main__":
             for j in range(int(len(subcomments))):
                 print("j =", j)
                 subcomment = comment.get_subcomments()[j]
-                print(subcomment.get_formatted_text())
-        print(comment.get_formatted_text())
+                #print(subcomment.get_formatted_text())
+        #print(comment.get_formatted_text())
