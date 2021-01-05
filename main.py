@@ -305,10 +305,12 @@ def com(comment):
 if __name__ == "__main__":
     pikabu = Pikabu_api(debug=True)
     post = pikabu.get_post('https://pikabu.ru/story/otvet_na_post_polsha_protiv_abortov_7791278')
+    print("post =", post)
     print("title =", post.get_title())
     comment = post.get_comments()
     total_comments = post.get_total_comments()
     print("Total", len(comment))
+    print("total_comments =", total_comments)
     for i in range(int(len(comment))):
         print("i =", i)
         comment = post.get_comments()[i]
