@@ -307,20 +307,20 @@ if __name__ == "__main__":
     post = pikabu.get_post('https://pikabu.ru/story/otvet_na_post_polsha_protiv_abortov_7791278')
     print("post =", post)
     print("title =", post.get_title())
-    comment = post.get_comments()
+    parent_comment = post.get_comments()
     total_comments = post.get_total_comments()
-    print("Total", len(comment))
+    print("Total", len(parent_comment))
     print("total_comments =", total_comments)
-    for i in range(int(len(comment))):
+    for i in range(int(len(parent_comment))):
         print("i =", i)
-        comment = post.get_comments()[i]
-        #comm = com(comment)
+        parent_comment = post.get_comments()[i]
+        #comm = com(parent_comment)
         #print(comm)
-        subcomments = comment.get_subcomments()
+        subcomments = parent_comment.get_subcomments()
         if (len(subcomments) != 0):
             print("subcomments = ", len(subcomments))
             for j in range(int(len(subcomments))):
-                print("j =", j)
-                subcomment = comment.get_subcomments()[j]
+                #print("j =", j)
+                subcomment = parent_comment.get_subcomments()[j]
                 #print(subcomment.get_formatted_text())
-        #print(comment.get_formatted_text())
+        #print(parent_comment.get_formatted_text())
